@@ -23,17 +23,17 @@ handleSearch: function(searchingText) {  // 1.Pobierz na wejsciu wpisywany tekst
 
 getGif: function(searchingText, callback) {  // 1.Na wejście metody getGif przyjmujemy dwa parametry: wpisywany tekst (searchingText) i funkcję, 
   //która ma się wykonać po pobraniu gifa (callback).
-  var url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;  
+  const url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;  
   // 2. Konstruujemy adres URL dla API Giphy
-  var xhr = new XMLHttpRequest();  
+  const xhr = new XMLHttpRequest();  
   // 3.Wywołujemy całą sekwencję tworzenia zapytania XHR do serwera i wysyłamy je.
   xhr.open('GET', url);
   xhr.onload = function() {
       if (xhr.status === 200) {
-         var data = JSON.parse(xhr.responseText).data; 
+         const data = JSON.parse(xhr.responseText).data; 
          // 4.W obiekcie odpowiedzi mamy obiekt z danymi. W tym miejscu rozpakowujemy je sobie 
          // do zmiennej data, aby nie pisać za każdym razem response.data.
-          var gif = {  // 5.Układamy obiekt gif na podstawie tego, co otrzymaliśmy z serwera
+          const gif = {  // 5.Układamy obiekt gif na podstawie tego, co otrzymaliśmy z serwera
               url: data.fixed_width_downsampled_url,
               sourceUrl: data.url
           };
@@ -45,7 +45,7 @@ getGif: function(searchingText, callback) {  // 1.Na wejście metody getGif przy
 },
   render: function() {
 
-      var styles = {
+      const styles = {
           margin: '0 auto',
           textAlign: 'center',
           width: '90%'
