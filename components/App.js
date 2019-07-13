@@ -23,6 +23,8 @@ handleSearch: function(searchingText) {  // 1.Pobierz na wejsciu wpisywany tekst
 
 getGif: function(searchingText, callback) {  // 1.Na wejście metody getGif przyjmujemy dwa parametry: wpisywany tekst (searchingText) i funkcję, 
   //która ma się wykonać po pobraniu gifa (callback).
+  const GIPHY_API_URL = "https://api.giphy.com";
+  const GIPHY_PUB_KEY = "iKpgic7OxmKlXvYmXswUTHDeYxZAOpV0";
   const url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;  
   // 2. Konstruujemy adres URL dla API Giphy
   const xhr = new XMLHttpRequest();  
