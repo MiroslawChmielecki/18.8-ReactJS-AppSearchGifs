@@ -46,8 +46,9 @@ getGif: function(searchingText, callback) {  // 1.Na wejście metody getGif przy
   xhr.send();
 },
   render: function() {
-
-      const styles = {
+    const {loading, gif} = this.state;
+      
+    const styles = {
           margin: '0 auto',
           textAlign: 'center',
           width: '90%'
@@ -61,9 +62,9 @@ getGif: function(searchingText, callback) {  // 1.Na wejście metody getGif przy
               <Search onSearch={this.handleSearch} />
           
           <Gif 
-            loading={this.state.loading}
-            url={this.state.gif.url}
-            sourceUrl={this.state.gif.sourceUrl}
+            loading={loading}
+            url={gif.url}
+            sourceUrl={gif.sourceUrl}
           />
         </div>
       );
